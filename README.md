@@ -18,10 +18,9 @@ Avant de commencer, assurez-vous que votre environnement dispose des prérequis 
 Pour installer toutes les dépendances nécessaires, exécutez la commande suivante :
 
 ```bash
-pip install git+https://github.com/huggingface/transformers datasets accelerate deepspeed evaluate matplotlib hydra-core trl omegaconf peft rouge_score tqdm einops packaging bitsandbytes scipy ninja
+pip install -r requirements.txt
 ```
 ### Lancement 
 ```bash
-pip install -r requirements.txt
 python3 Unlearn_function.py
 ```
