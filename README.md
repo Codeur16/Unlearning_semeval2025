@@ -20,7 +20,7 @@ Pour installer toutes les dépendances nécessaires, exécutez la commande suiva
 ```bash
 pip install -r requirements.txt
 ```
-### Lancement 
+### Parameters
 ```bash
 Set the model_token:
 Unlearn(
@@ -30,6 +30,8 @@ Unlearn(
     retain_train_path="Data/retain_train.jsonl",
     model_token = ""
 )
-
+```
+### Lancement 
+```bash
 python3 Unlearn_function.py
 ```
