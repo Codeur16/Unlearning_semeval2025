@@ -22,5 +22,6 @@ pip install git+https://github.com/huggingface/transformers datasets accelerate 
 ```
 ### Lancement 
 ```bash
-Unlearn_function.py
+pip install -r requirements.txt
+python3 Unlearn_function.py
 ```
