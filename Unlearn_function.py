@@ -85,7 +85,7 @@ class Unlearn_TrainerDataCollator(DataCollatorWithPadding):
 
 
 
-def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train_path):
+def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train_path, model_token):
     """
     =================================== Step 1: Load model and tokenizer =============================================
     """
@@ -100,7 +100,7 @@ def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train
     args = ArgsParams(
         model_id=model_path,
         tokenizer_id="allenai/OLMo-1B-hf",
-        model_token="",
+        model_token = model_token,
         hf_rep=True,
         lr=1e-4,
         epochs=10,
@@ -303,13 +303,12 @@ def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train
     save_path =f"{unlearn_model_save_path}/model"
     
     Unlearn_trainer_instance = Unlearn_Trainer(
-        model=model,
-        args=args_training,
-        train_dataset=Dataset.from_dict(R_F_dataset_tokenizer ),
-        # train_dataset=Dataset.from_dict(F_dataset),R_F_dataset_tokenizer
-        tokenizer=tokenizer,
-        data_collator = Unlearn_TrainerDataCollator(tokenizer),
-        optimizers=(optimizer, scheduler),
+        model=model, 
+        args=args_training, 
+        train_dataset=Dataset.from_dict(R_F_dataset_tokenizer ), 
+        tokenizer=tokenizer, 
+        data_collator = Unlearn_TrainerDataCollator(tokenizer), 
+        optimizers=(optimizer, scheduler), 
     )
 
      # Définir le GradScaler
@@ -344,11 +343,6 @@ def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train
     minutes, seconds = divmod(remainder, 60)
     print(f"End ... : End time: [{start_time}]\n Running time: {hours}:{minutes}:{seconds}")
     """=====================================Step10: Save the unlearn model  ==================================================="""
-
-    
-
-
-    
     model.save_pretrained(save_path)
     tokenizer.save_pretrained(save_path)
     print("Le modèle a été sauvegardé avec succès.")
@@ -360,4 +354,5 @@ Unlearn(
     unlearn_model_save_path="model/Unlearn_model",
     forget_train_path="Data/forget_train.jsonl",
     retain_train_path="Data/retain_train.jsonl",
+    model_token = ""
 )
