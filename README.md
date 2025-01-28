@@ -22,5 +22,14 @@ pip install -r requirements.txt
 ```
 ### Lancement 
 ```bash
+Set the model_token:
+Unlearn(
+    model_path="llmunlearningsemeval2025organization/olmo-1B-model-semeval25-unlearning",
+    unlearn_model_save_path="model/Unlearn_model",
+    forget_train_path="Data/forget_train.jsonl",
+    retain_train_path="Data/retain_train.jsonl",
+    model_token = ""
+)
+
 python3 Unlearn_function.py
 ```
