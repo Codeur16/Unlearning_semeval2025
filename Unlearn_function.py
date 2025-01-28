@@ -357,7 +357,7 @@ def Unlearn(model_path, unlearn_model_save_path, forget_train_path, retain_train
 # Call the unlearn  function
 Unlearn(
     model_path="llmunlearningsemeval2025organization/olmo-1B-model-semeval25-unlearning",
-    unlearn_model_save_path="/kaggle/working/model",
-    forget_train_path="/kaggle/input/unlearning/forget_train.jsonl",
-    retain_train_path="/kaggle/input/unlearning/retain_train.jsonl",
+    unlearn_model_save_path="model/Unlearn_model",
+    forget_train_path="Data/forget_train.jsonl",
+    retain_train_path="Data/retain_train.jsonl",
 )
