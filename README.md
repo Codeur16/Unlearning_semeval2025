@@ -35,3 +35,6 @@ Unlearn(
 ```bash
 python3 Unlearn_function.py
 ```
+```bash
+Unlearn_function_with_localize_parameters.py
+```
